@@ -1,0 +1,74 @@
+body {
+    background-color: rgb(80, 80, 80);
+    color: rgb(236, 236, 236);
+    box-sizing: border-box;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+hr {
+    border-color: rgb(80, 80, 80);
+    margin-block: .5rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin-left: 1rem;
+}
+
+h3 {
+    background-color: rgb(48, 48, 48);
+    padding: 0.25rem;
+    border-radius: 5px;
+}
+
+p {
+    background-color: rgb(48, 48, 48);
+    padding: 0.25rem;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+a {
+    color: rgb(172, 172, 172);
+}
+
+a:hover {
+    color: rgb(209, 209, 209);
+}
+
+.post-card {
+    background-color: rgb(151, 151, 151);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    margin: auto;
+    width: 90%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.under-post {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
