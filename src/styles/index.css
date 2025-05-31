@@ -1,6 +1,13 @@
+:root {
+    --background: rgb(73, 73, 73);
+    --cards: rgb(131, 131, 131);
+    --text-blocks: rgb(65, 65, 65);
+    --text-color: rgb(236, 236, 236);
+}
+
 body {
-    background-color: rgb(80, 80, 80);
-    color: rgb(236, 236, 236);
+    background-color: var(--background);
+    color: var(--text-color);
     box-sizing: border-box;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 18px;
@@ -9,7 +16,7 @@ body {
 }
 
 hr {
-    border-color: rgb(80, 80, 80);
+    border-color: var(--text-blocks);
     margin-block: .5rem;
 }
 
@@ -22,16 +29,18 @@ h2 {
 }
 
 h3 {
-    background-color: rgb(48, 48, 48);
+    background-color: var(--text-blocks);
     padding: 0.25rem;
     border-radius: 5px;
+    max-width: 30rem;
 }
 
 p {
-    background-color: rgb(48, 48, 48);
+    background-color: var(--text-blocks);
     padding: 0.25rem;
     border-radius: 5px;
     width: fit-content;
+    margin-block: .25rem;
 }
 
 a {
@@ -42,8 +51,50 @@ a:hover {
     color: rgb(209, 209, 209);
 }
 
-.post-card {
-    background-color: rgb(151, 151, 151);
+a.go-back {
+    color: rgb(58, 58, 58);
+    font-weight: 600;
+}
+
+a.go-back:hover {
+    color:rgb(34, 34, 34)
+}
+
+button {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    color:rgb(172, 172, 172);
+    font-size: 1rem;
+    cursor: pointer;
+    padding-left: .5rem;
+}
+
+button:hover {
+    color: rgb(209, 209, 209);
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  padding-bottom: .25rem;
+}
+
+.comments-header {
+    background-color: transparent;
+    margin-left: 1rem;
+}
+
+.post-title {
+    margin-left: 0;
+
+}
+
+.post-card,
+.comment-card {
+    background-color: var(--cards);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 1rem;
@@ -53,7 +104,8 @@ a:hover {
     margin-bottom: 1rem;
 }
 
-.post-header {
+.post-header,
+.comment-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -66,9 +118,21 @@ a:hover {
 }
 
 .post-content {
-    width: 100%;
+    width: 80%;
+    padding: 0;
+}
+
+.truncated-post {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--text-blocks);
+    border-radius: 5px;
+    padding: .25rem;
+
 }
 
+.no-comments {
+    background-color: transparent;
+    margin-left: 1rem;
+}
