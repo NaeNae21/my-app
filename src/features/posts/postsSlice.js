@@ -61,6 +61,7 @@ const postsSlice = createSlice({
       builder
       .addCase(fetchPosts.pending, (state) => {
         state.status = 'loading';
+        state.posts = [];
       })
       .addCase(fetchPosts.fulfilled, (state, action) => {
         state.status = 'succeeded';

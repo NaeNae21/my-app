@@ -327,3 +327,36 @@ button:hover {
 .retry-button {
     padding-top: .25rem;
 }
+
+.search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cards);
+    width: 22rem;
+    margin: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.search button {
+    padding: 0;
+    height: auto;
+    height: 2rem;
+}
+
+.search-icon {
+    height: 2rem;
+    width: 2rem;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.search-bar {
+    height: 1.75rem;
+    width: 20rem;
+    border: none;
+    padding: .25rem;
+    border-radius: 5px;
+}

@@ -7,14 +7,18 @@ A simple Reddit browser built with React and Redux. Users can view posts from Re
 - View a feed of Reddit posts
 - View detailed post content including images and text
 - Load and expand/collapse comments per post
-- Search posts by keywords
+- Search posts by subreddit
 - Responsive UI layout for desktop and mobile
-- Error states when comments fail to load
+- Error states when posts or comments fail to load
 - Navigation between list and detail view using React Router
+- Loading animations to enhance UI polish
+- Improved design consistency using a basic design system (e.g., shared colors, card layouts)
+- Retry button when posts or comments fail to load
 
 ## 📸 Wireframes
 
 *(Include a screenshot or wireframe here. You can use Figma, Balsamiq, or even a hand-drawn sketch scanned in.)*
+![alt text](image.png)
 
 ---
 
@@ -47,14 +51,10 @@ This app is mobile-friendly and works well on modern desktop and mobile browsers
 
 ## 🚀 Future Work
 
-- [ ] Add filtering by post categories or subreddit flairs
 - [ ] Add unit tests for components like `PostCard` and `Comment`
 - [ ] Write end-to-end test: load feed → click a post → view details → go back
-- [ ] Add loading and fade-in animations to enhance UI polish
-- [ ] Improve design consistency using a basic design system (e.g., shared colors, card layouts)
 - [ ] Include actual wireframes in this README
 - [ ] Deploy live to Netlify or Vercel
-- [ ] Add a retry button or auto-retry logic when comments fail to load
 
 ---
 

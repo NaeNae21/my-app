@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchPosts } from "./postsSlice";
 
 const PostsList = () => {
+    const [ searchTerm, setSearchTerm ] = useState('')
     const dispatch = useDispatch();
     const posts = useSelector((state) => state.posts.posts);
     const postStatus = useSelector((state) => state.posts.status);
@@ -18,6 +19,14 @@ const PostsList = () => {
             dispatch(fetchPosts());
         }
     }, [postStatus, dispatch]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (searchTerm.trim()) {
+            dispatch(fetchPosts(searchTerm.trim()));
+            setSearchTerm('');
+        }
+    };
 
     if (postStatus === 'loading') return <div className="loading">
         <h2>Top Posts</h2>
@@ -55,6 +64,16 @@ const PostsList = () => {
 
     return (
         <>
+            <div className="search">
+                <input 
+                    type="text" 
+                    className="search-bar" 
+                    placeholder="Search by subreddit..." 
+                    value={searchTerm} 
+                    onChange={(e) => setSearchTerm(e.target.value)} 
+                />
+                <button type="submit" onClick={handleSubmit}><img className="search-icon" src="../search-icon.png"></img></button>
+            </div>
             <h2>Top Posts</h2>
             {posts.map((post) => (
                 <div key={post.id} className="post-card">
