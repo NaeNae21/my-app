@@ -7,23 +7,23 @@ import { fetchComments } from '../features/comments/commentsSlice';
 const PostDetail = () => {
     const dispatch = useDispatch();
     const { postId } = useParams();
-    const commentStatus = useSelector((state) => state.comments.status);
+    const commentState = useSelector((state) => state.comments.commentsByPostId[postId]) || {};
+    const { comments = [], status: commentStatus, error } = commentState;
+
     const [expandedComments, setExpandedComments] = useState([]);
-
-    const comments = useSelector(
-        (state) => state.comments.commentsByPostId[postId] || []
-    );
-
-    const permalink = useSelector((state) => state.posts.permalink)
 
     const post = useSelector((state) => state.posts.posts.find((post) => post.id === postId)
     );
 
+    const permalink = post.permalink;
+
     useEffect(() => {
-        if (commentStatus === 'idle') {
-            dispatch(fetchComments(postId, permalink));
+        const hasComments = comments && comments.length > 0;
+
+        if (!hasComments && commentStatus !== 'failed') {
+            dispatch(fetchComments({ postId, permalink }));
         }
-    }, [commentStatus, dispatch]);
+    }, [commentStatus, dispatch, postId, permalink]);
 
 
     const toggleExpand = (commentId) => {
@@ -34,7 +34,7 @@ const PostDetail = () => {
     }
 
     if (!post) {
-        return <p>Post not found.</p>
+        return <p className='failed'>Post not found.</p>
     }
 
     return (
@@ -46,13 +46,31 @@ const PostDetail = () => {
                     <p>⬆ {post.ups}</p>
                 </div>
                 <hr/>
-                <p>{post.selftext}</p>
+                <p className='post-detail-content'>
+                    {post.selftext
+                    ? post.selftext
+                    : post.image
+                        ? <img className='post-detail-image' src={post.image}/>
+                        : null}
+                </p>
             </div>
 
             <h3 className='comments-header'>Comments</h3>
-            {commentStatus === 'loading' && <p>Loading Comments...</p>}
-            {commentStatus === 'failed' && <p>Failed to Load Comments.</p>}
-            {commentStatus === 'succeeded' && comments.length === 0 && <p>No comments yet.</p>}
+
+            {commentStatus === 'loading' && <div>
+                <div className='loading-comment'>
+                    <div className='loading-header'>
+                        <div className='loading-comment-author shimmer'></div>
+                        <div className='loading-comment-ups shimmer'></div>
+                    </div>
+                    <div className='loading-comment-content shimmer'></div>
+                </div>
+            </div>}
+            {commentStatus === 'failed' && <div className='failed'>
+                <p>Failed to Load Comments.</p>
+                <button className="retry-button" onClick={() => dispatch(fetchComments({ postId, permalink }))}>Retry ↺</button>
+            </div>}
+            {commentStatus === 'succeeded' && comments.length === 0 && <p className='failed'>No comments yet.</p>}
             {comments.length > 0 &&
                 comments.map((comment) => {
                     const isExpanded = expandedComments[comment.id];

@@ -10,7 +10,7 @@ const Comment = ({ author, body, ups, isExpanded, onToggle }) => {
         <div className='comment-card'>
             <div className='comment-header'>
                 <p><strong>{author}</strong></p>
-                <p>👍 {ups}</p>
+                <p>⬆ {ups}</p>
             </div>
             <p>
                 {commentText}

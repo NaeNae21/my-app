@@ -43,6 +43,7 @@ export const fetchPosts = createAsyncThunk(
       permalink: post.data.permalink,
       subreddit: post.data.subreddit,
       num_comments: post.data.num_comments,
+      image: post.data.preview?.images?.[0]?.source?.url?.replace(/&amp;/g, '&') || null,
     }));
   }
 );
