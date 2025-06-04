@@ -53,7 +53,6 @@ This app is mobile-friendly and works well on modern desktop and mobile browsers
 
 - [ ] Add unit tests for components like `PostCard` and `Comment`
 - [ ] Write end-to-end test: load feed → click a post → view details → go back
-- [ ] Include actual wireframes in this README
 - [ ] Deploy live to Netlify or Vercel
 
 ---

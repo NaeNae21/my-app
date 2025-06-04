@@ -12,12 +12,12 @@ const Comment = ({ author, body, ups, isExpanded, onToggle }) => {
                 <p><strong>{author}</strong></p>
                 <p>⬆ {ups}</p>
             </div>
-            <p>
-                {commentText}
+            <div className="comment-content">
+                <p>{commentText}
                 {body.length > 100 && (
                 <button onClick={onToggle} className='toggle-button'>{isExpanded ? 'Show less' : 'Show more'}</button>
-                )}
-            </p>
+                )}</p>
+            </div>
         </div>
     );
 }

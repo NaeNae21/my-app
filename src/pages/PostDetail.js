@@ -40,26 +40,33 @@ const PostDetail = () => {
     return (
         <div>
             <div className='post-card'>
-                <Link className='go-back' to="/">Go Back ↩</Link><h2 className='post-title'>{post.title}</h2>
+                <div className='go-back-container'><Link className='go-back' to="/">Go Back ↩</Link></div>
+                <h2 className='post-title'>{post.title}</h2>
                 <div className='post-header'>
                     <p>by {post.author}</p>
                     <p>⬆ {post.ups}</p>
                 </div>
                 <hr/>
-                <p className='post-detail-content'>
-                    {post.selftext
-                    ? post.selftext
-                    : post.image
-                        ? <img className='post-detail-image' src={post.image}/>
-                        : null}
-                </p>
+                <div className='post-detail-content'>
+                    {post.selftext && <p>{post.selftext}</p>}
+                        {post.image && <img className="post-detail-image" src={post.image}></img>}
+                        {post.gallery && (
+                            <div className="gallery">
+                                {post.gallery_images.map((imgUrl, i) => (
+                                    <img className="post-detail-image" 
+                                    key={i} 
+                                    src={imgUrl}></img>
+                                ))}
+                            </div>  
+                        )}
+                    <a className='go-back' target="_blank" href={post.url}>See the full Reddit post</a>    
+                </div>
             </div>
 
             <h3 className='comments-header'>Comments</h3>
-
             {commentStatus === 'loading' && <div>
                 <div className='loading-comment'>
-                    <div className='loading-header'>
+                    <div className='loading-comment-header'>
                         <div className='loading-comment-author shimmer'></div>
                         <div className='loading-comment-ups shimmer'></div>
                     </div>

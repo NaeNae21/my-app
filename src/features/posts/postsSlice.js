@@ -1,52 +1,228 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+
+
 const mockPosts = [
   {
-    id: 'abc123',
-    title: 'Why React is Awesome',
-    author: 'user123',
-    ups: 120,
-    num_comments: 2,
-    selftext: `React is awesome because it allows developers to build interactive user interfaces using a declarative approach. You can create components that encapsulate both logic and presentation, making your app modular and maintainable. The virtual DOM ensures efficient updates, and features like hooks and context provide a powerful toolset for managing state and side effects. Whether you're building a small widget or a large-scale application, React provides the flexibility and performance you need.`
+    data: {
+      id: "abc123",
+      title: "Check out my new React project!",
+      author: "devgirl123",
+      ups: 120,
+      selftext: "Just finished building a to-do app with hooks and context.",
+      permalink: "/r/reactjs/comments/abc123/check_out_my_new_react_project/",
+      url: "https://www.reddit.com/r/reactjs/comments/abc123/check_out_my_new_react_project/",
+      subreddit: "reactjs",
+      num_comments: 14,
+      preview: {
+        images: [
+          {
+            source: {
+              url: "../public/stock-image.jpg"
+            }
+          }
+        ]
+      },
+      is_gallery: false,
+      media_metadata: null
+    }
   },
   {
-    id: 'def456',
-    title: 'Redux Toolkit Tips',
-    author: 'dev_guy',
-    ups: 85,
-    num_comments: 1,
-    selftext: `Redux Toolkit simplifies working with Redux by abstracting away much of the boilerplate. Instead of writing separate action types, action creators, and reducers, you can use "slices" to keep logic together. It also comes with built-in support for thunk middleware and devtools, making it easier to manage async actions and debug your app. When combined with createAsyncThunk and Immer, your state logic becomes concise and expressive, improving both readability and maintainability.`
+    data: {
+      id: "def456",
+      title: "Need help with useEffect cleanup",
+      author: "hookedonhooks",
+      ups: 89,
+      selftext: "I'm seeing a memory leak warning — what might be going wrong?",
+      permalink: "/r/reactjs/comments/def456/need_help_with_useeffect_cleanup/",
+      url: "https://www.reddit.com/r/reactjs/comments/def456/need_help_with_useeffect_cleanup/",
+      subreddit: "reactjs",
+      num_comments: 32,
+      preview: null,
+      is_gallery: false,
+      media_metadata: null
+    }
   },
   {
-    id: 'ghi789',
-    title: 'How I Built My First Front-End App',
-    author: 'beginner_coder',
-    ups: 42,
-    num_comments: 0,
-    selftext: `When I built my first front-end app, I had no idea where to start. I began with plain HTML and CSS, but quickly ran into limitations. Then I discovered React, and everything changed. Breaking down the UI into components helped me stay organized. I used React Router for navigation and eventually learned about Redux for managing complex state. It was a challenging journey, but each step gave me more confidence. Now, I'm working on my second project with a much clearer understanding of how everything fits together.`
+    data: {
+      id: "ghi789",
+      title: "Dark mode toggle built with Tailwind!",
+      author: "themingMaster",
+      ups: 213,
+      selftext: "",
+      permalink: "/r/reactjs/comments/ghi789/dark_mode_toggle_built_with_tailwind/",
+      url: "https://www.reddit.com/r/reactjs/comments/ghi789/dark_mode_toggle_built_with_tailwind/",
+      subreddit: "reactjs",
+      num_comments: 45,
+      preview: {
+        images: [
+          {
+            source: {
+              url: "../public/stock-image.jpg"
+            }
+          }
+        ]
+      },
+      is_gallery: false,
+      media_metadata: null
+    }
+  },
+  {
+    data: {
+      id: "jkl012",
+      title: "Just learned about useReducer!",
+      author: "newbieCoder",
+      ups: 33,
+      selftext: "Reducers make state logic so much cleaner. Highly recommend.",
+      permalink: "/r/reactjs/comments/jkl012/just_learned_about_usereducer/",
+      url: "https://www.reddit.com/r/reactjs/comments/jkl012/just_learned_about_usereducer/",
+      subreddit: "reactjs",
+      num_comments: 8,
+      preview: null,
+      is_gallery: false,
+      media_metadata: null
+    }
+  },
+  {
+    data: {
+      id: "mno345",
+      title: "My first image gallery in React!",
+      author: "galleryGal",
+      ups: 198,
+      selftext: "Built this with CSS grid and React state.",
+      permalink: "/r/reactjs/comments/mno345/my_first_image_gallery_in_react/",
+      url: "https://www.reddit.com/r/reactjs/comments/mno345/my_first_image_gallery_in_react/",
+      subreddit: "reactjs",
+      num_comments: 20,
+      preview: {
+        images: [
+          {
+            source: {
+              url: "../public/stock-image.jpg"
+            }
+          }
+        ]
+      },
+      is_gallery: true,
+      media_metadata: {
+        "abc": { s: { u: "../public/stock-image.jpg" } },
+        "def": { s: { u: "../public/stock-image.jpg" } }
+      }
+    }
+  },
+  {
+    data: {
+      id: "pqr678",
+      title: "Crossposted: ReactConf Highlights",
+      author: "eventRecapBot",
+      ups: 55,
+      selftext: "",
+      permalink: "/r/reactjs/comments/pqr678/crossposted_reactconf_highlights/",
+      url: "https://www.reddit.com/r/reactjs/comments/pqr678/crossposted_reactconf_highlights/",
+      subreddit: "reactjs",
+      num_comments: 4,
+      preview: {
+        images: [
+          {
+            source: {
+              url: "../public/stock-image.jpg"
+            }
+          }
+        ]
+      },
+      is_gallery: false,
+      media_metadata: null,
+      crosspost_parent: "t3_zyx987"
+    }
+  },
+  {
+    data: {
+      id: "stu901",
+      title: "Another crosspost you should skip",
+      author: "metaPoster",
+      ups: 12,
+      selftext: "Not original content.",
+      permalink: "/r/reactjs/comments/stu901/another_crosspost_you_should_skip/",
+      url: "https://www.reddit.com/r/reactjs/comments/stu901/another_crosspost_you_should_skip/",
+      subreddit: "reactjs",
+      num_comments: 3,
+      preview: null,
+      is_gallery: false,
+      media_metadata: null,
+      crosspost_parent: "t3_abcd1234"
+    }
   }
 ];
+
+const USE_MOCK = false;
+
+const extractGalleryImages = (media_metadata) => {
+  return Object.values(media_metadata).map((item) =>
+    item.s.u.replace(/&amp;/g, '&')
+  );
+};
 
 
 export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
   async (subreddit = 'reactjs') => {
+    if (USE_MOCK) {
+      return mockPosts;
+    }
+
     const response = await fetch(`https://www.reddit.com/r/${subreddit}.json`);
     const json = await response.json();
 
-    return json.data.children.map((post) => ({
+    console.log(`Children`, json.data.children);
+
+    return json.data.children
+    .filter(post => !post.data.crosspost_parent)
+    .map(post => {
+      return {
+        id: post.data.id,
+        title: post.data.title,
+        author: post.data.author,
+        ups: post.data.ups,
+        selftext: post.data.selftext,
+        permalink: post.data.permalink,
+        url: post.data.url.replace(/&amp;/g, '&'),
+        subreddit: post.data.subreddit,
+        num_comments: post.data.num_comments,
+        image: post.data.preview?.images?.[0]?.source?.url?.replace(/&amp;/g, '&') || null,
+        gallery: post.data.is_gallery,
+        gallery_images: post.data.is_gallery && post.data.media_metadata ? extractGalleryImages(post.data.media_metadata) : null,
+      }
+    });
+  }
+);
+
+export const searchPosts = createAsyncThunk(
+  'posts/searchPosts',
+  async (query) => {
+    const url = `https://www.reddit.com/r/${query}.json`;
+    const response = await fetch(url);
+    const json = await response.json();
+
+    console.log('search results:', json.data.children);
+
+    return json.data.children
+    .filter(post => !post.data.crosspost_parent)
+    .map((post) => ({
       id: post.data.id,
       title: post.data.title,
       author: post.data.author,
       ups: post.data.ups,
       selftext: post.data.selftext,
       permalink: post.data.permalink,
+      url: post.data.url.replace(/&amp;/g, '&'),
       subreddit: post.data.subreddit,
       num_comments: post.data.num_comments,
       image: post.data.preview?.images?.[0]?.source?.url?.replace(/&amp;/g, '&') || null,
-    }));
+      gallery: post.data.is_gallery,
+      gallery_images: post.data.is_gallery && post.data.media_metadata ? extractGalleryImages(post.data.media_metadata) : null,
+    }))
   }
-);
+)
 
 
 const postsSlice = createSlice({
@@ -68,6 +244,19 @@ const postsSlice = createSlice({
         state.posts = action.payload;
       })
       .addCase(fetchPosts.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+
+      .addCase(searchPosts.pending, (state) => {
+        state.status = 'loading';
+        state.posts = [];
+      })
+      .addCase(searchPosts.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.posts = action.payload;
+      })
+      .addCase(searchPosts.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       })

@@ -9,16 +9,35 @@ body {
     background-color: var(--background);
     color: var(--text-color);
     box-sizing: border-box;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Open Sans';
     font-size: 18px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    min-height: 100vh;
+}
+
+.catamaran {
+    font-family: Catamaran;
+    margin-bottom: .5rem;
+}
+
+.about {
+    background-color: transparent;
+    margin: auto;
+    padding: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
 }
 
 hr {
     border-color: var(--text-blocks);
     margin-block: .5rem;
+    width: 90%;
 }
 
 h1 {
@@ -26,7 +45,10 @@ h1 {
 }
 
 h2 {
-    margin-left: 1rem;
+    width: 90%;
+    text-align: left;
+    margin: auto;
+    margin-bottom: .5rem;
 }
 
 h3 {
@@ -34,6 +56,7 @@ h3 {
     padding: 0.25rem;
     border-radius: 5px;
     max-width: 30rem;
+    margin-block: .5rem;
 }
 
 p {
@@ -46,7 +69,7 @@ p {
 
 a {
     color: rgb(172, 172, 172);
-    margin-right: .25rem;
+    margin-left: .25rem;
 }
 
 a:hover {
@@ -56,6 +79,14 @@ a:hover {
 a.go-back {
     color: rgb(58, 58, 58);
     font-weight: 600;
+    margin: 0;
+    margin-bottom: .25rem;
+}
+
+.go-back-container {
+    margin: auto;
+    width: 90%;
+    text-align: left;
 }
 
 a.go-back:hover {
@@ -90,8 +121,8 @@ button:hover {
 }
 
 .post-title {
-    margin-left: 0;
-
+    margin: auto;
+    width: 90%;
 }
 
 .post-card,
@@ -99,36 +130,54 @@ button:hover {
     background-color: var(--cards);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    padding: 1rem;
     margin: auto;
     width: 90%;
     height: auto;
     margin-bottom: 1rem;
+    padding-block: .25rem;
 }
+
 
 .post-header,
 .comment-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 90%;
+    margin: auto;
 }
 
 .under-post {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 90%;
+    margin: auto;
 }
 
 .post-content {
-    width: 80%;
+    width: 90%;
+    padding: 0;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+
+.comment-content {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    width: 90%;
+    margin: auto;
     padding: 0;
 }
 
 .post-image {
-    height: auto;
-    width: 95%;
+    height: 15rem;
+    width: 100%;
+    object-fit: cover;
     border-radius: 5px;
-    margin: .25rem;
+    margin: auto;
     overflow: hidden;
 }
 
@@ -136,10 +185,12 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
+    flex-direction: column;
+    width: 90%;
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: anywhere;
+    margin: auto;
 }
 
 .post-detail-image {
@@ -152,30 +203,34 @@ button:hover {
 
 .truncated-post {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     background-color: var(--text-blocks);
     border-radius: 5px;
-    padding: .25rem;
-
+    padding-block: .25rem;
+    width: 90%;
+    margin: auto;
 }
 
 .failed {
     background-color: transparent;
-    margin-left: 1rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 100%;
+
     align-items: center;
+    justify-content: center;
+    margin-bottom: .25rem;
 }
 
 .failed p{
     background-color: transparent;
     padding: 0;
-    margin: 0;
 }
 
 .loading {
-    width: auto;
+    width: 100%;
     height: auto;
 }
 
@@ -192,25 +247,28 @@ button:hover {
 
 .loading-post {
     background-color: var(--cards);
-    width: 95%;
+    width: 90%;
     height: auto;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
 }
 
 .loading-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 90%;
+    margin-block: .5rem;
 }
 
 .loading-title {
     background-color: var(--text-blocks);
-    width: 30rem;
+    width: 20rem;
     height: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    margin-inline: .5rem;
     border-radius: 5px;
 }
 
@@ -219,27 +277,27 @@ button:hover {
     border-radius: 5px;
     width: 2rem;
     height: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    margin-inline: .5rem;
 }
 
 .loading-content {
     background-color: var(--text-blocks);
     border-radius: 5px;
-    width: 97.5%;
+    width: 90%;
     height: 5rem;
-    margin-inline: .5rem;
 }
 
 .loading-hr {
-    width: 97%;
+    width: 90%;
+    margin-bottom: .75rem;
 }
 
 .loading-under-post {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row;
+    width: 90%;
+    margin-bottom: .5rem;
 }
 
 .loading-author {
@@ -247,30 +305,38 @@ button:hover {
     border-radius: 5px;
     width: 10rem;
     height: 2rem;
-    margin-top: .5rem;
-    margin-bottom: 1rem;
-    margin-inline: .5rem;
 }
-
+/* the loading post small comment count */
 .loading-comments {
     background-color: var(--text-blocks);
     border-radius: 5px;
     width: 2rem;
     height: 2rem;
-    margin-top: .5rem;
-    margin-bottom: 1rem;
-    margin-inline: .5rem;
 }
 
+
+
+
+/* the comment loading blocks */
 .loading-comment {
     margin: auto;
     background-color: var(--cards);
-    width: 95%;
+    width: 90%;
     height: auto;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    padding-bottom: 1rem;
     margin-bottom: 2rem;
+    padding-block: .5rem;
+}
+
+.loading-comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin: auto;
+    width: 90%;
+    margin-bottom: .5rem;
 }
 
 .loading-comment-author {
@@ -278,9 +344,6 @@ button:hover {
     border-radius: 5px;
     width: 10rem;
     height: 2rem;
-    margin-top: .5rem;
-    margin-bottom: 1rem;
-    margin-inline: .5rem;
 }
 
 .loading-comment-ups {
@@ -288,17 +351,14 @@ button:hover {
     border-radius: 5px;
     width: 2rem;
     height: 2rem;
-    margin-top: .5rem;
-    margin-bottom: 1rem;
-    margin-inline: .5rem;
 }
 
 .loading-comment-content {
     background-color: var(--text-blocks);
     border-radius: 5px;
-    width: 97.5%;
+    width: 90%;
     height: 4rem;
-    margin-inline: .5rem;
+    margin: auto;
 }
 
 @keyframes shimmer {
@@ -342,7 +402,6 @@ button:hover {
 
 .search button {
     padding: 0;
-    height: auto;
     height: 2rem;
 }
 
@@ -359,4 +418,69 @@ button:hover {
     border: none;
     padding: .25rem;
     border-radius: 5px;
+}
+
+.gallery {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+
+
+.small-screen {
+    display: none;
+}
+
+@media only screen and (max-width: 345px) {
+    .comments {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .small-screen {
+        display: block;
+    }
+
+    .large-screen {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 492px) {
+    .ups,
+    .loading-ups {
+        display: none;
+    }
+
+    .search {
+        width: 18rem;
+    }
+
+    .search-bar {
+        width: 16rem;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .comment-card,
+    .post-card,
+    .loading-post,
+    .loading-comment {
+        width: 70%;
+    }
+    .comments-header,
+    h2 {
+        margin: auto;
+        width: fit-content;
+        margin-bottom: .5rem;
+    }
+
+    h3 {
+        max-width: fit-content;
+    }
 }
