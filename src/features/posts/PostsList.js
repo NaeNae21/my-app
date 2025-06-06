@@ -90,7 +90,7 @@ const PostsList = () => {
                 <div key={post.id} className="post-card">
                     <div className="post-header">
                         <h3 className="small-screen">{truncate(post.title, 25)}</h3>
-                        <h3 className="large-screen">{post.title}</h3>
+                        <h3 className="large-screen">{truncate(post.title, 70)}</h3>
                         <p className="ups">⬆ {post.ups}</p>
                     </div>
                     <div className="truncated-post">

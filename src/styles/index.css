@@ -194,6 +194,10 @@ button:hover {
     margin: auto;
 }
 
+.post-detail-content p {
+    width: 100%;
+}
+
 .post-detail-image {
     height: auto;
     width: 100%;
@@ -442,7 +446,7 @@ button:hover {
     }
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-width: 715px) {
     .small-screen {
         display: block;
     }
@@ -467,7 +471,7 @@ button:hover {
     }
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1105px) {
     .comment-card,
     .post-card,
     .loading-post,
@@ -483,5 +487,23 @@ button:hover {
 
     h3 {
         max-width: fit-content;
+    }
+}
+
+@media only screen and (max-width: 1330px) {
+    .comment-card,
+    .post-card,
+    .loading-post,
+    .loading-comment {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 1165px) {
+    .comment-card,
+    .post-card,
+    .loading-post,
+    .loading-comment {
+        width: 85%;
     }
 }
