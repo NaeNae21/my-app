@@ -8,19 +8,28 @@ const PostDetail = () => {
     const dispatch = useDispatch();
     const { postId } = useParams();
     const commentState = useSelector((state) => state.comments.commentsByPostId[postId]) || {};
-    const { comments = [], status: commentStatus, error } = commentState;
+    const {
+        comments = [],
+        status: commentStatus = 'idle',
+        error,
+    } = commentState;
 
     const [expandedComments, setExpandedComments] = useState([]);
 
     const post = useSelector((state) => state.posts.posts.find((post) => post.id === postId)
     );
 
+    if (!post) {
+        return <p className='failed'>Post not found.</p>
+    }
+
     const permalink = post.permalink;
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-        const hasComments = comments && comments.length > 0;
+        const hasComments = comments?.length > 0;
 
-        if (!hasComments && commentStatus !== 'failed') {
+        if (!hasComments && commentStatus === 'idle') {
             dispatch(fetchComments({ postId, permalink }));
         }
     }, [commentStatus, dispatch, postId, permalink]);
@@ -33,9 +42,6 @@ const PostDetail = () => {
         }));
     }
 
-    if (!post) {
-        return <p className='failed'>Post not found.</p>
-    }
 
     return (
         <div>

@@ -46,7 +46,7 @@ h1 {
 }
 
 h2 {
-    width: 90%;
+    width: 85%;
     text-align: left;
     margin: auto;
     margin-bottom: .5rem;
@@ -118,7 +118,10 @@ button:hover {
 
 .comments-header {
     background-color: transparent;
-    margin-left: 1rem;
+    width: 85%;
+    text-align: left;
+    margin: auto;
+    max-width: none;
 }
 
 .post-title {

@@ -2,7 +2,7 @@
 
 A simple Reddit browser built with React and Redux. Users can view posts from Reddit, search through them, filter, and view post details including comments. Built as part of a project to demonstrate full React/Redux workflow and testing.
 
-## 🔍 Features
+## Features
 
 - View a feed of Reddit posts
 - View detailed post content including images and text
@@ -12,17 +12,18 @@ A simple Reddit browser built with React and Redux. Users can view posts from Re
 - Error states when posts or comments fail to load
 - Navigation between list and detail view using React Router
 - Loading animations to enhance UI polish
-- Improved design consistency using a basic design system (e.g., shared colors, card layouts)
+- Design consistency using a basic design system (e.g., shared colors, card layouts)
 - Retry button when posts or comments fail to load
+- Unit tests for components like `PostCard` and `Comment`
+- End-to-end test: load feed → click a post → view details → expand comment → go back → search new posts
 
-## 📸 Wireframes
+## Wireframes
 
-*(Include a screenshot or wireframe here. You can use Figma, Balsamiq, or even a hand-drawn sketch scanned in.)*
 ![alt text](image.png)
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - React
 - Redux Toolkit
@@ -35,42 +36,39 @@ A simple Reddit browser built with React and Redux. Users can view posts from Re
 
 ---
 
-## 📱 Responsive Design
+## Responsive Design
 
 This app is mobile-friendly and works well on modern desktop and mobile browsers. Responsive layouts are handled with CSS Flexbox and media queries.
 
 ---
 
-## 🧪 Testing
+## Testing
 
-### ✅ Planned:
 - Unit tests with **Jest** and **React Testing Library**
-- End-to-end tests with **Cypress** or **Playwright**
+- End-to-end tests with **Cypress**
 
 ---
 
-## 🚀 Future Work
+## Future Work
 
-- [ ] Add unit tests for components like `PostCard` and `Comment`
-- [ ] Write end-to-end test: load feed → click a post → view details → go back
 - [ ] Deploy live to Netlify or Vercel
 
 ---
 
-## 🧭 Project Management
+## Project Management
 
 This project was planned using **GitHub Projects**. Tasks were broken down by feature and tracked using issues and boards for visual progress.
 
 ---
 
-## 🔗 Deployment
+## Deployment
 
 📍 *To be added once hosted.*  
 You’ll be able to view the live project at: `https://your-deployment-url.com`
 
 ---
 
-## 🧠 Learnings
+## Learnings
 
 This project reinforced concepts like:
 
@@ -82,12 +80,8 @@ This project reinforced concepts like:
 
 ---
 
-## ✨ Credits
+## Credits
 
 This project uses data from the [Reddit JSON API](https://www.reddit.com/dev/api/).
 
 ---
-
-## 📄 License
-
-MIT

@@ -53,6 +53,8 @@ const commentsSlice = createSlice({
     name: 'comments',
     initialState: {
         commentsByPostId: {},
+        status: 'idle',
+        error: null
     },
     reducers: {},
     extraReducers: (builder) => {
