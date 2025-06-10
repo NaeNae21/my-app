@@ -63,8 +63,7 @@ This project was planned using **GitHub Projects**. Tasks were broken down by fe
 
 ## Deployment
 
-📍 *To be added once hosted.*  
-You’ll be able to view the live project at: `https://your-deployment-url.com`
+You’ll be able to view the live project at: `[https://your-deployment-url.com](https://jenae-redditish.netlify.app/)`
 
 ---
 
