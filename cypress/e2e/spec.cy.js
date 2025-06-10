@@ -1,6 +1,6 @@
 describe('Redditish post list page', () => {
   it('loads list of posts', () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('https://jenae-redditish.netlify.app/')
 
     //checks for posts section
     cy.contains('Top Posts').should('be.visible');
@@ -18,7 +18,7 @@ describe('Redditish post list page', () => {
   })
 
   it('opens the detail page when a link is clicked, toggles comment expand button', () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('https://jenae-redditish.netlify.app/')
 
     //clicks first post
     cy.get('.post-card')
@@ -54,7 +54,7 @@ describe('Redditish post list page', () => {
   })
 
   it('should go back to the post list page when the go back link is clicked', () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('https://jenae-redditish.netlify.app/')
 
     //clicks first post
     cy.get('.post-card')
@@ -70,7 +70,7 @@ describe('Redditish post list page', () => {
   })
 
   it('loads a new list of posts when searched', () => {
-    cy.visit('http://localhost:3000/')
+    cy.visit('https://jenae-redditish.netlify.app/')
 
     cy.get('.search-bar').type('gardening');
 
