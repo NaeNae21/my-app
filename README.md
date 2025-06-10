@@ -51,8 +51,6 @@ This app is mobile-friendly and works well on modern desktop and mobile browsers
 
 ## Future Work
 
-- [ ] Deploy live to Netlify or Vercel
-
 ---
 
 ## Project Management
