@@ -55,13 +55,14 @@ const PostDetail = () => {
                 <hr/>
                 <div className='post-detail-content'>
                     {post.selftext && <p>{post.selftext}</p>}
-                        {post.image && <img className="post-detail-image" src={post.image}></img>}
+                        {post.image && <img className="post-detail-image" src={post.image} alt="post image"></img>}
                         {post.gallery && (
                             <div className="gallery">
                                 {post.gallery_images.map((imgUrl, i) => (
                                     <img className="post-detail-image" 
                                     key={i} 
-                                    src={imgUrl}></img>
+                                    src={imgUrl}
+                                    alt="gallery image"></img>
                                 ))}
                             </div>  
                         )}

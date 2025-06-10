@@ -99,6 +99,7 @@ const PostsList = () => {
                             {post.image && !isErrored ? <img className="post-image" 
                             src={post.image}
                             onError={() => handleImageError(post.id)}
+                            alt="post image"
                             ></img> : null}
                             {post.gallery && (
                               <div className="gallery">
@@ -106,6 +107,7 @@ const PostsList = () => {
                                     <img className="post-image" 
                                     key={i} 
                                     src={imgUrl}
+                                    alt="gallery image"
                                     ></img>
                                 ))}
                               </div>  
