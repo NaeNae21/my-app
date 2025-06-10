@@ -10,8 +10,7 @@ const PostDetail = () => {
     const commentState = useSelector((state) => state.comments.commentsByPostId[postId]) || {};
     const {
         comments = [],
-        status: commentStatus = 'idle',
-        error,
+        status: commentStatus = 'idle'
     } = commentState;
 
     const [expandedComments, setExpandedComments] = useState([]);
@@ -32,7 +31,7 @@ const PostDetail = () => {
         if (!hasComments && commentStatus === 'idle') {
             dispatch(fetchComments({ postId, permalink }));
         }
-    }, [commentStatus, dispatch, postId, permalink]);
+    }, [commentStatus, dispatch, postId, permalink, comments?.length]);
 
 
     const toggleExpand = (commentId) => {
@@ -55,18 +54,18 @@ const PostDetail = () => {
                 <hr/>
                 <div className='post-detail-content'>
                     {post.selftext && <p>{post.selftext}</p>}
-                        {post.image && <img className="post-detail-image" src={post.image} alt="post image"></img>}
+                        {post.image && <img className="post-detail-image" src={post.image} alt=""></img>}
                         {post.gallery && (
                             <div className="gallery">
                                 {post.gallery_images.map((imgUrl, i) => (
                                     <img className="post-detail-image" 
                                     key={i} 
                                     src={imgUrl}
-                                    alt="gallery image"></img>
+                                    alt=""></img>
                                 ))}
                             </div>  
                         )}
-                    <a className='go-back' target="_blank" href={post.url}>See the full Reddit post</a>    
+                    <a className='go-back' rel="noreferrer" target="_blank" href={post.url}>See the full Reddit post</a>    
                 </div>
             </div>
 
