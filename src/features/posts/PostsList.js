@@ -78,7 +78,7 @@ const PostsList = () => {
                     value={searchTerm} 
                     onChange={(e) => setSearchTerm(e.target.value)} 
                 />
-                <button className="submit-button" type="submit" onClick={handleSubmit}><img className="search-icon" src="../search-icon.png"></img></button>
+                <button className="submit-button" type="submit" onClick={handleSubmit}><img alt="magnifying glass" className="search-icon" src="../search-icon.png"></img></button>
             </div>
 
             <h2>Top Posts</h2>
